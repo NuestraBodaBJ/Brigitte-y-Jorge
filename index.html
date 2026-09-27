@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Briggite & Jorge  | Nuestra boda</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+  --wine: #651b2b;
+  --red: #8d293c;
+  --gold: #c5a36c;
+  --cream: #fbf6ef;
+  --ink: #35272a;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+button { font: inherit; cursor: pointer; }
+.serif { font-family: 'Cormorant Garamond', serif; }
+.italic { font-style: italic; }
+
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: white;
+  background:
+    linear-gradient(#280b15a8,#280b15b8),
+    url("imagenes/imagen1.jpg") center/cover;
+  transition: opacity 1s, visibility 1s;
+}
+.cover.closed { opacity: 0; visibility: hidden; }
+.cover-content { padding: 24px; }
+.cover-small {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.cover h1 {
+  font: italic 400 clamp(55px,12vw,105px) 'Cormorant Garamond',serif;
+  margin: 20px 0;
+}
+.cover p { letter-spacing: 3px; font-size: 11px; }
+.open-btn {
+  margin-top: 30px;
+  border: 1px solid #e8d2a5;
+  color: white;
+  background: transparent;
+  padding: 14px 28px;
+  letter-spacing: 3px;
+  font-size: 10px;
+  transition: .3s;
+}
+.open-btn:hover { background: var(--gold); color: #2d1519; }
+
+main { overflow: hidden; }
+section { padding: 85px 20px; }
+.wrap { max-width: 900px; margin: auto; }
+.center { text-align: center; }
+.kicker {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+h2 {
+  font: 400 clamp(38px,7vw,64px) 'Cormorant Garamond',serif;
+  margin: 12px 0 22px;
+}
+p { line-height: 1.9; }
+.gold-line {
+  width: 55px; height: 1px;
+  background: var(--gold);
+  margin: 25px auto;
+}
+.hero {
+  min-height: 95vh;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-bottom: 85px;
+  background:
+    linear-gradient(0deg,#260e18d9,transparent 70%),
+    url("imagenes/imagen2.jpg") center/cover;
+}
+.hero h1 {
+  font: italic 400 clamp(65px,12vw,125px) 'Cormorant Garamond',serif;
+  line-height: .85;
+  margin: 20px 0;
+}
+.hero .date { letter-spacing: 4px; font-size: 11px; }
+
+.intro { background: var(--cream); }
+.intro .message {
+  max-width: 570px;
+  margin: auto;
+  font: italic 400 25px/1.6 'Cormorant Garamond',serif;
+}
+.photo {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.portrait {
+  max-width: 570px;
+  height: 620px;
+  margin: 35px auto;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px,5vw,45px);
+  margin: 35px 0;
+}
+.countdown div { min-width: 55px; }
+.countdown strong {
+  display: block;
+  font: 400 45px 'Cormorant Garamond',serif;
+  color: var(--wine);
+}
+.countdown span {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.story {
+  background: #f1e8df;
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+.story-grid img { height: 460px; }
+.story-copy { padding: 20px; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin-top: 35px;
+}
+.gallery-grid img {
+  height: 300px;
+  cursor: pointer;
+  transition: transform .4s, filter .4s;
+}
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  filter: brightness(.9);
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  background: #14090deF;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 95%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+.lightbox button {
+  position: absolute;
+  top: 20px; right: 25px;
+  color: white; background: none;
+  border: 0; font-size: 32px;
+}
+
+.details { background: var(--wine); color: white; }
+.details h2 { color: white; }
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 35px;
+}
+.detail-card {
+  border: 1px solid #ffffff45;
+  padding: 35px 20px;
+  text-align: center;
+}
+.detail-card h3 {
+  font: italic 400 32px 'Cormorant Garamond',serif;
+}
+.detail-card p { font-size: 12px; line-height: 2; }
+.outline-btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: white;
+  text-decoration: none;
+  padding: 12px 18px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 15px;
+}
+.schedule { max-width: 600px; margin: auto; }
+.schedule-row {
+  display: flex;
+  gap: 25px;
+  border-bottom: 1px solid #ddcfc1;
+  padding: 20px 5px;
+}
+.schedule-row time {
+  color: var(--red);
+  min-width: 90px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.schedule-row div { line-height: 1.7; font-size: 13px; }
+
+.dress { background: #f1e8df; }
+.dress-symbol { font-size: 35px; color: var(--gold); }
+
+.rsvp { background: var(--cream); }
+.form {
+  max-width: 580px;
+  margin: 30px auto 0;
+  text-align: left;
+}
+.form label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin: 20px 0 8px;
+  text-transform: uppercase;
+}
+.form input, .form select, .form textarea {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid #d7c7b8;
+  color: var(--ink);
+  font: 13px 'Montserrat',sans-serif;
+}
+.form textarea { min-height: 90px; }
+.solid-btn {
+  display: block;
+  margin: 28px auto 0;
+  background: var(--wine);
+  color: white;
+  border: 0;
+  padding: 16px 28px;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+.gifts { background: #f1e8df; }
+.gift-box {
+  border: 1px solid #d6c4b2;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+}
+.copy-btn {
+  border: 1px solid var(--gold);
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--wine);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+footer {
+  background: #32131d;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+footer h2 { font-style: italic; }
+.music {
+  position: fixed;
+  z-index: 10;
+  right: 18px;
+  bottom: 18px;
+  width: 45px; height: 45px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: var(--wine);
+  color: white;
+}
+.fade {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .8s ease;
+}
+.fade.in { opacity: 1; transform: none; }
+
+@media(max-width:650px) {
+  section { padding: 65px 18px; }
+  .story-grid, .detail-grid { grid-template-columns: 1fr; }
+  .story-grid img { height: 390px; }
+  .gallery-grid { grid-template-columns: repeat(2,1fr); }
+  .gallery-grid img { height: 220px; }
+  .portrait { height: 460px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA / SOBRE -->
+<div class="cover" id="cover">
+  <div class="cover-content">
+    <div class="cover-small">Una invitación especial</div>
+    <h1>Jorge <br>& Briggite</h1>
+    <p>12 · 12 · 2026</p>
+    <button class="open-btn" onclick="abrirInvitacion()">
+      ABRIR INVITACIÓN
+    </button>
+  </div>
+</div>
+
+<!-- MÚSICA: reemplaza musica.mp3 por tu archivo -->
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+<button class="music" onclick="toggleMusica()" aria-label="Música">♫</button>
+
+<main>
+  <!-- PORTADA PRINCIPAL -->
+  <section class="hero">
+    <div>
+      <div class="kicker" style="color:#ead5ae">Nos casamos</div>
+      <h1>Jorge <br>& Briggite</h1>
+      <div class="date">SÁBADO · 12 DICIEMBRE · 2026</div>
+    </div>
+  </section>
+
+  <!-- MENSAJE -->
+  <section class="intro center">
+    <div class="wrap fade">
+      <div class="kicker">Con la bendición de Dios</div>
+      <h2>¡Nos casamos!</h2>
+      <div class="gold-line"></div>
+      <p class="message">
+        Hay momentos que se vuelven eternos cuando
+        se comparten con las personas que amamos.
+        Nos encantaría que seas parte de este día.
+      </p>
+      <!-- FOTO 3 -->
+      <img class="photo portrait" src="imagenes/imagen3.jpg"
+           alt="Fotografía de los novios">
+    </div>
+  </section>
+
+  <!-- CUENTA REGRESIVA -->
+  <section class="center">
+    <div class="wrap fade">
+      <div class="kicker">La cuenta regresiva comienza</div>
+      <h2>Falta muy poco</h2>
+      <div class="countdown">
+        <div><strong id="dias">00</strong><span>Días</span></div>
+        <div><strong id="horas">00</strong><span>Horas</span></div>
+        <div><strong id="minutos">00</strong><span>Minutos</span></div>
+        <div><strong id="segundos">00</strong><span>Segundos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUESTRA HISTORIA -->
+  <section class="story">
+    <div class="wrap story-grid fade">
+      <!-- FOTO 4 -->
+      <img class="photo" src="imagenes/imagen4.jpg"
+           alt="Nuestra historia">
+      <div class="story-copy center">
+        <div class="kicker">Nuestra historia</div>
+        <h2>Un amor, mil recuerdos</h2>
+        <p>
+          Desde aquel primer encuentro hasta este momento,
+          cada paso nos trajo aquí. Hoy queremos celebrar
+          el amor y todo lo que aún nos queda por vivir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="center">
+    <div class="wrap fade">
+      <div class="kicker">Nuestros momentos</div>
+      <h2>Una pequeña historia en fotos</h2>
+      <p>Recuerdos que guardamos en el corazón.</p>
+
+      <div class="gallery-grid" id="galeria">
+        <!-- FOTOS 5 A 10: editar los archivos aquí -->
+        <img src="imagenes/imagen5.jpg" alt="Foto 5" onclick="verFoto(this)">
+        <img src="imagenes/imagen6.jpg" alt="Foto 6" onclick="verFoto(this)">
+        <img src="imagenes/imagen7.jpg" alt="Foto 7" onclick="verFoto(this)">
+        <img src="imagenes/imagen8.jpg" alt="Foto 8" onclick="verFoto(this)">
+        <img src="imagenes/imagen9.jpg" alt="Foto 9" onclick="verFoto(this)">
+        <img src="imagenes/imagen10.jpg" alt="Foto 10" onclick="verFoto(this)">
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACIONES -->
+  <section class="details">
+    <div class="wrap center fade">
+      <div class="kicker" style="color:#dfc18d">Celebremos juntos</div>
+      <h2>El gran día</h2>
+      <p>Nos encantará compartir cada instante contigo.</p>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <div class="kicker" style="color:#dfc18d">Primero</div>
+          <h3>Ceremonia</h3>
+          <p>
+            6:00 p. m.<br>
+            Iglesia [NOMBRE]<br>
+            [DIRECCIÓN]<br>
+            [DISTRITO, LIMA]
+          </p>
+          <a class="outline-btn"
+             href="https://www.google.com/maps"
+             target="_blank">VER EN MAPS</a>
+        </div>
+
+        <div class="detail-card">
+          <div class="kicker" style="color:#dfc18d">Después</div>
+          <h3>Recepción</h3>
+          <p>
+            8:00 p. m.<br>
+            [NOMBRE DEL LOCAL]<br>
+            [DIRECCIÓN]<br>
+            [DISTRITO, LIMA]
+          </p>
+          <a class="outline-btn"
+             href="https://www.google.com/maps"
+             target="_blank">VER EN MAPS</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARIO -->
+  <section class="center">
+    <div class="wrap fade">
+      <div class="kicker">Acompáñanos</div>
+      <h2>Itinerario</h2>
+      <div class="schedule">
+        <div class="schedule-row">
+          <time>6:00 PM</time><div><b>Ceremonia</b><br>El comienzo de nuestra vida juntos.</div>
+        </div>
+        <div class="schedule-row">
+          <time>8:00 PM</time><div><b>Recepción</b><br>Brindis y bienvenida.</div>
+        </div>
+        <div class="schedule-row">
+          <time>9:00 PM</time><div><b>Cena</b><br>Una noche para compartir.</div>
+        </div>
+        <div class="schedule-row">
+          <time>10:30 PM</time><div><b>¡A bailar!</b><br>Que comience la celebración.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VESTIMENTA -->
+  <section class="dress center">
+    <div class="wrap fade">
+      <div class="dress-symbol">✧</div>
+      <div class="kicker">Dress code</div>
+      <h2>Elegante</h2>
+      <p>Formal · Queremos verte celebrar con nosotros.</p>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp center">
+    <div class="wrap fade">
+      <div class="kicker">Tu presencia es importante</div>
+      <h2>¿Nos acompañas?</h2>
+      <p>Confirma tu asistencia antes del [FECHA LÍMITE].</p>
+
+      <!--
+        RSVP DEMO:
+        Este formulario abre WhatsApp con los datos.
+        Cambia el número en el JavaScript de abajo.
+      -->
+      <form class="form" onsubmit="enviarRSVP(event)">
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" required placeholder="Tu nombre">
+
+        <label for="asistencia">Confirmación</label>
+        <select id="asistencia" required>
+          <option value="">Selecciona</option>
+          <option value="Sí asistiré">Sí, asistiré</option>
+          <option value="No podré asistir">No podré asistir</option>
+        </select>
+
+        <label for="acompanantes">Acompañantes (sin contarte)</label>
+        <select id="acompanantes">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+
+        <label for="nota">Mensaje (opcional)</label>
+        <textarea id="nota" placeholder="Unas palabras para los novios"></textarea>
+
+        <button class="solid-btn" type="submit">
+          CONFIRMAR POR WHATSAPP
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- REGALOS -->
+  <section class="gifts center">
+    <div class="wrap fade">
+      <div class="kicker">Un detalle de corazón</div>
+      <h2>Regalos</h2>
+      <p>
+        Tu compañía es nuestro mejor regalo.
+        Si deseas hacernos un presente, aquí tienes
+        algunas opciones.
+      </p>
+
+      <div class="gift-box">
+        <h3 class="serif">Yape / Plin</h3>
+        <p>
+          Titular: [NOMBRE]<br>
+          Celular: <b id="celular">[NÚMERO]</b>
+        </p>
+        <button class="copy-btn" onclick="copiar('celular')">
+          COPIAR NÚMERO
+        </button>
+      </div>
+
+      <div class="gift-box">
+        <h3 class="serif">Lista de regalos</h3>
+        <p>[TIENDA / CÓDIGO DE LISTA]</p>
+        <a href="[ENLACE_LISTA]" class="copy-btn"
+           style="display:inline-block;text-decoration:none">
+          VER LISTA
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="kicker" style="color:#d8b77e">Con todo nuestro amor</div>
+    <h2>Jorge & Briggite</h2>
+    <p>12 · 12 · 2026</p>
+    <div style="color:#d8b77e;font-size:25px">♡</div>
+    <small>Gracias por ser parte de nuestra historia.</small>
+  </footer>
+</main>
+
+<!-- Visor de fotos -->
+<div class="lightbox" id="lightbox" onclick="cerrarFoto()">
+  <button aria-label="Cerrar">×</button>
+  <img id="fotoGrande" src="" alt="Fotografía ampliada">
+</div>
+
+<script>
+/* =================================================
+   1. CONFIGURACIÓN DE FOTOS
+   Cambia aquí los nombres/rutas de tus imágenes.
+   Cada entrada corresponde a imagen1, imagen2, etc.
+================================================= */
+
+const imagenes = {
+  imagen1: "imagenes/imagen1.jpg",   // Fondo del sobre
+  imagen2: "imagenes/imagen2.jpg",   // Portada principal
+  imagen3: "imagenes/imagen3.jpg",   // Foto de los novios
+  imagen4: "imagenes/imagen4.jpg",   // Nuestra historia
+  imagen5: "imagenes/imagen5.jpg",   // Galería 1
+  imagen6: "imagenes/imagen6.jpg",   // Galería 2
+  imagen7: "imagenes/imagen7.jpg",   // Galería 3
+  imagen8: "imagenes/imagen8.jpg",   // Galería 4
+  imagen9: "imagenes/imagen9.jpg",   // Galería 5
+  imagen10:"imagenes/imagen10.jpg"   // Galería 6
+};
+
+/* Total de fotos previstas: 10.
+   Si agregas más, añade imagen11, imagen12...
+   y coloca sus etiquetas <img> en la galería. */
+
+
+/* =================================================
+   2. ABRIR INVITACIÓN
+================================================= */
+
+function abrirInvitacion() {
+  document.getElementById("cover").classList.add("closed");
+  const audio = document.getElementById("musica");
+  audio.play().catch(() => {});
+}
+
+
+/* =================================================
+   3. MÚSICA
+   Archivo esperado: musica.mp3
+================================================= */
+
+function toggleMusica() {
+  const audio = document.getElementById("musica");
+  if (audio.paused) {
+    audio.play().catch(() => {});
+  } else {
+    audio.pause();
+  }
+}
+
+
+/* =================================================
+   4. CUENTA REGRESIVA
+   Ajusta fecha y hora local de la boda.
+================================================= */
+
+const fechaBoda = new Date("2026-12-12T18:00:00-05:00").getTime();
+
+function actualizarCuenta() {
+  const ahora = Date.now();
+  const diferencia = fechaBoda - ahora;
+
+  if (diferencia <= 0) {
+    document.getElementById("dias").textContent = "00";
+    document.getElementById("horas").textContent = "00";
+    document.getElementById("minutos").textContent = "00";
+    document.getElementById("segundos").textContent = "00";
+    return;
+  }
+
+  const dias = Math.floor(diferencia / 86400000);
+  const horas = Math.floor((diferencia % 86400000) / 3600000);
+  const minutos = Math.floor((diferencia % 3600000) / 60000);
+  const segundos = Math.floor((diferencia % 60000) / 1000);
+
+  document.getElementById("dias").textContent = dias;
+  document.getElementById("horas").textContent = String(horas).padStart(2,"0");
+  document.getElementById("minutos").textContent = String(minutos).padStart(2,"0");
+  document.getElementById("segundos").textContent = String(segundos).padStart(2,"0");
+}
+
+actualizarCuenta();
+setInterval(actualizarCuenta, 1000);
+
+
+/* =================================================
+   5. GALERÍA / AMPLIAR FOTOS
+================================================= */
+
+function verFoto(img) {
+  document.getElementById("fotoGrande").src = img.src;
+  document.getElementById("lightbox").classList.add("show");
+}
+
+function cerrarFoto() {
+  document.getElementById("lightbox").classList.remove("show");
+}
+
+
+/* =================================================
+   6. RSVP POR WHATSAPP
+   Reemplaza el número por el de ustedes.
+   Formato internacional sin + ni espacios.
+   Ejemplo Perú: 51999111222
+================================================= */
+
+const whatsappNovios = "519XXXXXXXX";
+
+function enviarRSVP(event) {
+  event.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const asistencia = document.getElementById("asistencia").value;
+  const acompanantes = document.getElementById("acompanantes").value;
+  const nota = document.getElementById("nota").value.trim();
+
+  const mensaje =
+    "Hola Jorge y Briggite 💍\n\n" +
+    "Soy: " + nombre + "\n" +
+    "Confirmación: " + asistencia + "\n" +
+    "Acompañantes: " + acompanantes + "\n" +
+    (nota ? "Mensaje: " + nota : "");
+
+  const url = "https://wa.me/" + whatsappNovios +
+              "?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
+}
+
+
+/* =================================================
+   7. COPIAR DATOS DE REGALO
+================================================= */
+
+function copiar(id) {
+  const texto = document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(texto)
+    .then(() => alert("Copiado: " + texto))
+    .catch(() => alert("No se pudo copiar. Selecciona el dato manualmente."));
+}
+
+
+/* =================================================
+   8. ANIMACIÓN AL DESPLAZARSE
+================================================= */
+
+const observador = new IntersectionObserver((entradas) => {
+  entradas.forEach((entrada) => {
+    if (entrada.isIntersecting) {
+      entrada.target.classList.add("in");
+      observador.unobserve(entrada.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".fade").forEach((elemento) => {
+  observador.observe(elemento);
+});
+</script>
+</body>
+</html>
