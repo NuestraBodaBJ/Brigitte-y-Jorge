@@ -100,9 +100,14 @@ p { line-height: 1.9; }
     url("imagenes/imagen2.jpg") center/cover;
 }
 .hero h1 {
-  font: italic 400 clamp(65px,12vw,125px) 'Cormorant Garamond',serif;
-  line-height: .85;
-  margin: 20px 0;
+  font: italic 400 clamp(68px,13vw,125px) 'Cormorant Garamond',serif;
+  line-height: .98;
+  margin: 24px 0 22px;
+}
+.hero .kicker {
+  font-size: 13px;
+  letter-spacing: 5px;
+  font-weight: 400;
 }
 .hero .date { letter-spacing: 4px; font-size: 11px; }
 
@@ -152,10 +157,23 @@ p { line-height: 1.9; }
 .story-copy { padding: 20px; }
 
 .gallery-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   margin-top: 35px;
+  overflow: hidden;
+}
+.gallery-grid img {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 .gallery-grid img {
   height: 300px;
@@ -216,23 +234,94 @@ p { line-height: 1.9; }
   letter-spacing: 2px;
   margin-top: 15px;
 }
-.schedule { max-width: 600px; margin: auto; }
+.schedule {
+  width: 100%;
+  max-width: 600px;
+  margin: 35px auto 0;
+  display: grid;
+  gap: 0;
+}
 .schedule-row {
   display: flex;
-  gap: 25px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  min-height: 92px;
+  padding: 20px 16px;
   border-bottom: 1px solid #ddcfc1;
-  padding: 20px 5px;
+  text-align: center;
 }
+.schedule-row:last-child { border-bottom: 0; }
 .schedule-row time {
+  display: block;
   color: var(--red);
-  min-width: 90px;
+  min-width: 0;
   font-size: 11px;
   letter-spacing: 1px;
+  text-align: center;
+  white-space: nowrap;
 }
-.schedule-row div { line-height: 1.7; font-size: 13px; }
+.schedule-row div {
+  min-width: 0;
+  line-height: 1.7;
+  font-size: 13px;
+  text-align: center;
+}
+.schedule-row b {
+  font-weight: 500;
+}
 
-.dress { background: #f1e8df; }
+.dress {
+  background: #f1e8df;
+  position: relative;
+  overflow: hidden;
+}
 .dress-symbol { font-size: 35px; color: var(--gold); }
+
+/* Paleta de colores del dress code */
+.color-palette {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 30px auto 5px;
+  flex-wrap: wrap;
+}
+.color-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 62px;
+}
+.color-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.8);
+  box-shadow: 0 2px 8px rgba(50,20,25,.15), 0 0 0 1px rgba(101,27,43,.12);
+}
+.color-name {
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #6d5551;
+}
+.color-note {
+  margin-top: 18px;
+  font-size: 10px;
+  letter-spacing: .7px;
+  color: #806d68;
+}
+
+@media (max-width: 650px) {
+  .color-palette { gap: 12px; margin-top: 25px; }
+  .color-swatch { min-width: 56px; }
+  .color-circle { width: 45px; height: 45px; }
+  .color-name { font-size: 7px; letter-spacing: .8px; }
+}
 
 .rsvp { background: var(--cream); }
 .form {
@@ -310,10 +399,433 @@ footer h2 { font-style: italic; }
   section { padding: 65px 18px; }
   .story-grid, .detail-grid { grid-template-columns: 1fr; }
   .story-grid img { height: 390px; }
-  .gallery-grid { grid-template-columns: repeat(2,1fr); }
-  .gallery-grid img { height: 220px; }
+  .schedule-row {
+    gap: 7px;
+    padding: 18px 10px;
+  }
+  .schedule-row time { font-size: 10px; letter-spacing: .5px; }
+  .schedule-row div { font-size: 12px; }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
   .portrait { height: 460px; }
+  .parents-block {
+    padding: 26px 14px 18px;
+    margin-top: 28px;
+  }
+  .parents-intro { font-size: 20px; }
+  .parents-name { font-size: 17px; }
+  .envelope-decoration { width: 160px; height: 98px; }
+  .envelope-decoration::after { width: 67px; height: 67px; }
 }
+
+
+/* =================================================
+   ESTÉTICA EDITORIAL ROMÁNTICA: VINO + MARFIL
+   Se aplica a todas las secciones sin cambiar las fuentes.
+================================================= */
+:root {
+  --wine: #3b0711;
+  --red: #641b29;
+  --gold: #c9b99d;
+  --cream: #f4f1eb;
+  --ink: #4a3034;
+  --paper-edge: #d8cfc3;
+}
+
+body {
+  background: var(--wine);
+  color: var(--ink);
+}
+
+main { background: var(--wine); }
+section:not(.hero) {
+  background: var(--wine);
+  padding: 72px 20px;
+}
+
+/* Paneles de papel para que cada sección parezca una invitación */
+section:not(.hero) .wrap {
+  position: relative;
+  isolation: isolate;
+  max-width: 900px;
+  padding: clamp(30px, 5vw, 58px);
+  background: var(--cream);
+  border: 1px solid var(--paper-edge);
+  outline: 1px solid rgba(201,185,157,.55);
+  outline-offset: -8px;
+  box-shadow: 0 12px 28px rgba(18,0,5,.18);
+}
+
+section:not(.hero) .wrap::before,
+section:not(.hero) .wrap::after {
+  position: absolute;
+  z-index: 2;
+  color: #b9a37e;
+  opacity: .82;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1;
+  pointer-events: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,.45);
+}
+section:not(.hero) .wrap::before {
+  content: '❦';
+  top: 14px;
+  right: 18px;
+  font-size: 38px;
+}
+section:not(.hero) .wrap::after {
+  content: '❦';
+  bottom: 14px;
+  left: 18px;
+  font-size: 38px;
+  transform: rotate(180deg);
+}
+
+/* Detalles inspirados en una invitación física: marfil, flores y sobre */
+.parents-block {
+  max-width: 610px;
+  margin: 34px auto 10px;
+  padding: 30px 24px 22px;
+  border-top: 1px solid var(--paper-edge);
+  border-bottom: 1px solid var(--paper-edge);
+  position: relative;
+}
+.parents-block::before,
+.parents-block::after {
+  position: absolute;
+  color: #b9a37e;
+  font-size: 23px;
+  line-height: 1;
+}
+.parents-block::before {
+  content: '❧';
+  left: -2px;
+  top: -13px;
+}
+.parents-block::after {
+  content: '❧';
+  right: -2px;
+  bottom: -13px;
+  transform: rotate(180deg);
+}
+.parents-intro {
+  font: italic 400 22px/1.35 'Cormorant Garamond', serif;
+  color: var(--red);
+  margin-bottom: 22px;
+}
+.parents-group {
+  margin: 18px 0;
+}
+.parents-title {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #927b62;
+  margin-bottom: 7px;
+}
+.parents-name {
+  font: 400 18px/1.45 'Cormorant Garamond', serif;
+  color: #4a3034;
+}
+
+/* Pequeño sello floral para reforzar la estética del sobre */
+.intro .wrap {
+  overflow: hidden;
+}
+.intro .wrap::marker {
+  display: none;
+}
+.intro .wrap {
+  --seal: #6f1c29;
+}
+.intro .wrap::after {
+  content: '❦';
+}
+
+.kicker { color: #927b62; }
+h2 { color: var(--red); }
+.gold-line { background: var(--gold); }
+.intro .message { color: #5a4245; }
+
+
+.envelope-decoration {
+  width: 185px;
+  height: 112px;
+  margin: 34px auto 28px;
+  position: relative;
+  border: 1px solid #c9b99d;
+  background: #fffdfa;
+  box-shadow: 0 6px 16px rgba(45,10,17,.12);
+  overflow: hidden;
+}
+.envelope-decoration::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, transparent 49.5%, #d8cfc3 50%, transparent 50.5%),
+              linear-gradient(215deg, transparent 49.5%, #d8cfc3 50%, transparent 50.5%);
+  opacity: .8;
+}
+.envelope-decoration::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  width: 76px;
+  height: 76px;
+  transform: translateX(-50%) rotate(45deg);
+  border-right: 1px solid #c9b99d;
+  border-bottom: 1px solid #c9b99d;
+  background: #f4f1eb;
+}
+.envelope-decoration span {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--red);
+  color: #eadfcf;
+  font: 18px 'Cormorant Garamond', serif;
+  box-shadow: 0 2px 5px rgba(45,10,17,.2);
+}
+
+/* Pequeños motivos florales en las tarjetas de papel */
+section:not(.hero) .wrap {
+  background-image:
+    radial-gradient(circle at 9% 10%, rgba(201,185,157,.20) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 91% 90%, rgba(201,185,157,.16) 0 2px, transparent 2.5px);
+  background-size: 28px 28px, 34px 34px;
+  background-position: 0 0, 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Fotos como láminas enmarcadas */
+.photo {
+  border: 8px solid #fffdfa;
+  outline: 1px solid var(--paper-edge);
+  box-shadow: 0 5px 18px rgba(45,10,17,.16);
+}
+.story-grid { gap: 28px; }
+.story-copy { padding: 20px 12px; }
+
+/* Galería sobre papel, con separación regular */
+.gallery-grid { gap: 14px; }
+.gallery-grid img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 6px solid #fffdfa;
+  outline: 1px solid var(--paper-edge);
+  box-shadow: 0 3px 10px rgba(45,10,17,.12);
+  box-sizing: border-box;
+}
+
+/* Detalles, itinerario, vestimenta, RSVP y regalos */
+.details { color: var(--ink); }
+.details h2 { color: var(--red); }
+.details .detail-card {
+  background: rgba(255,255,255,.38);
+  border: 1px solid var(--paper-edge);
+  outline: 1px solid rgba(201,185,157,.45);
+  outline-offset: -6px;
+  color: var(--ink);
+}
+.details .detail-card h3 { color: var(--red); }
+.details .detail-card .kicker { color: #927b62 !important; }
+.details .outline-btn {
+  border-color: var(--gold);
+  color: var(--red);
+}
+.schedule-row { border-bottom-color: var(--paper-edge); }
+.schedule-row time { color: var(--red); }
+.schedule-row b { color: var(--red); }
+.dress-symbol { color: #a58b69; }
+.form input, .form select, .form textarea {
+  background: #fffdfa;
+  border-color: var(--paper-edge);
+}
+.form input:focus, .form select:focus, .form textarea:focus {
+  outline: 1px solid var(--gold);
+  border-color: var(--gold);
+}
+.solid-btn {
+  background: var(--wine);
+  border: 1px solid var(--gold);
+}
+.gift-box {
+  background: rgba(255,255,255,.35);
+  border-color: var(--paper-edge);
+}
+.copy-btn { border-color: var(--gold); color: var(--red); }
+
+/* Cierre romántico: texto final animado al entrar en pantalla */
+.final-love {
+  position: relative;
+  min-height: 58vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--wine);
+  color: var(--cream);
+  overflow: hidden;
+}
+.final-love::before,
+.final-love::after {
+  content: '❦';
+  position: absolute;
+  color: var(--gold);
+  opacity: .45;
+  font: 42px/1 'Cormorant Garamond', serif;
+}
+.final-love::before { top: 18%; left: 12%; transform: rotate(-18deg); }
+.final-love::after { bottom: 18%; right: 12%; transform: rotate(162deg); }
+.final-love-inner {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+}
+.final-love-small {
+  margin: 0 0 10px;
+  color: var(--gold);
+  font: italic 400 clamp(30px, 5vw, 48px)/1.1 'Cormorant Garamond', serif;
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(5px);
+  letter-spacing: 1px;
+}
+.final-love-title {
+  margin: 0;
+  color: var(--cream);
+  font: italic 400 clamp(52px, 10vw, 105px)/.95 'Cormorant Garamond', serif;
+  opacity: 0;
+  transform: translateY(28px) scale(.97);
+  filter: blur(6px);
+  letter-spacing: 2px;
+}
+.final-love-line {
+  width: 0;
+  height: 1px;
+  margin: 24px auto 0;
+  background: var(--gold);
+  opacity: 0;
+}
+.final-love-date {
+  margin: 22px 0 8px;
+  color: var(--cream);
+  font: 400 clamp(15px, 2.5vw, 19px)/1.3 'Montserrat', sans-serif;
+  letter-spacing: 4px;
+  opacity: 0;
+  transform: translateY(12px);
+}
+.final-love-heart {
+  margin: 2px 0 8px;
+  color: var(--gold);
+  font: 32px/1 'Cormorant Garamond', serif;
+  opacity: 0;
+  transform: scale(.7);
+}
+.final-love-thanks {
+  margin: 0;
+  color: rgba(248,243,237,.88);
+  font: 400 14px/1.7 'Cormorant Garamond', serif;
+  letter-spacing: .3px;
+  opacity: 0;
+  transform: translateY(10px);
+}
+.final-love.show .final-love-small {
+  animation: loveSmall 1.2s cubic-bezier(.22,.61,.36,1) .15s forwards;
+}
+.final-love.show .final-love-title {
+  animation: loveTitle 1.8s cubic-bezier(.22,.61,.36,1) .55s forwards;
+}
+.final-love.show .final-love-line {
+  animation: loveLine 1.1s ease 1.55s forwards;
+}
+.final-love.show .final-love-date {
+  animation: loveDetails 1s cubic-bezier(.22,.61,.36,1) 2.15s forwards;
+}
+.final-love.show .final-love-heart {
+  animation: loveHeart 1s cubic-bezier(.22,.61,.36,1) 2.45s forwards;
+}
+.final-love.show .final-love-thanks {
+  animation: loveDetails 1.2s cubic-bezier(.22,.61,.36,1) 2.65s forwards;
+}
+@keyframes loveSmall {
+  to { opacity: 1; transform: translateY(0); filter: blur(0); letter-spacing: 3px; }
+}
+@keyframes loveTitle {
+  0% { opacity: 0; transform: translateY(28px) scale(.97); filter: blur(6px); letter-spacing: 2px; }
+  60% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); letter-spacing: 4px; }
+}
+@keyframes loveLine {
+  to { width: 70px; opacity: 1; }
+}
+@keyframes loveDetails {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes loveHeart {
+  0% { opacity: 0; transform: scale(.7); }
+  65% { opacity: 1; transform: scale(1.12); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .final-love-small, .final-love-title, .final-love-line, .final-love-date, .final-love-heart, .final-love-thanks {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .final-love-line { width: 70px; }
+  .final-love-date, .final-love-heart, .final-love-thanks { opacity: 1; transform: none; }
+}
+
+/* El cierre vuelve al vino oscuro, como la portada */
+footer {
+  background: var(--wine);
+  color: var(--cream);
+  border-top: 1px solid rgba(201,185,157,.45);
+}
+footer h2 { color: var(--cream); }
+.music {
+  background: var(--wine);
+  border-color: var(--gold);
+}
+
+@media(max-width:650px) {
+  section:not(.hero) { padding: 38px 14px; }
+  section:not(.hero) .wrap {
+    padding: 38px 22px;
+    outline-offset: -6px;
+  }
+  section:not(.hero) .wrap::before,
+  section:not(.hero) .wrap::after { font-size: 26px; }
+  .story-grid { gap: 16px; }
+  .gallery-grid { gap: 10px; }
+  .hero h1 {
+    font-size: clamp(64px, 18vw, 92px);
+    line-height: 1.0;
+    margin: 22px 0 20px;
+  }
+  .hero .kicker {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+}
+
 </style>
 </head>
 
@@ -358,6 +870,32 @@ footer h2 { font-style: italic; }
         se comparten con las personas que amamos.
         Nos encantaría que seas parte de este día.
       </p>
+
+      <div class="parents-block">
+        <div class="parents-intro">Con la bendición de Dios y<br>en compañía de:</div>
+
+        <div class="parents-group">
+          <div class="parents-title">Padres del novio</div>
+          <div class="parents-name">Luis Marcos Olivera Pizarro</div>
+          <div class="parents-name">Maria Elena Velasquez Días</div>
+        </div>
+
+        <div class="parents-group">
+          <div class="parents-title">Padres de la novia</div>
+          <div class="parents-name">Carlos Bruno Fernándes Vera</div>
+          <div class="parents-name">Karla Luz Montes Huerta</div>
+        </div>
+
+        <div class="parents-group">
+          <div class="parents-title">Padrinos de honor</div>
+          <div class="parents-name">Jorge Luis Olivera Pizarro</div>
+        </div>
+      </div>
+
+      <div class="envelope-decoration" aria-hidden="true">
+        <span>❦</span>
+      </div>
+
       <!-- FOTO 3 -->
       <img class="photo portrait" src="imagenes/imagen3.jpg"
            alt="Fotografía de los novios">
@@ -483,6 +1021,35 @@ footer h2 { font-style: italic; }
       <div class="kicker">Dress code</div>
       <h2>Elegante</h2>
       <p>Formal · Queremos verte celebrar con nosotros.</p>
+
+      <div class="kicker" style="margin-top:28px;">Paleta de colores</div>
+      <div class="color-palette" aria-label="Paleta de colores sugerida para los invitados">
+        <div class="color-swatch">
+          <span class="color-circle" style="background:#651b2b;"></span>
+          <span class="color-name">Vino</span>
+        </div>
+        <div class="color-swatch">
+          <span class="color-circle" style="background:#8d293c;"></span>
+          <span class="color-name">Borgoña</span>
+        </div>
+        <div class="color-swatch">
+          <span class="color-circle" style="background:#9b6f70;"></span>
+          <span class="color-name">Rosa viejo</span>
+        </div>
+        <div class="color-swatch">
+          <span class="color-circle" style="background:#c5a36c;"></span>
+          <span class="color-name">Dorado</span>
+        </div>
+        <div class="color-swatch">
+          <span class="color-circle" style="background:#d8c4b5;"></span>
+          <span class="color-name">Champagne</span>
+        </div>
+        <div class="color-swatch">
+          <span class="color-circle" style="background:#f7efe5;"></span>
+          <span class="color-name">Marfil</span>
+        </div>
+      </div>
+      <p class="color-note">Una guía de tonalidades para acompañar nuestra celebración.</p>
     </div>
   </section>
 
@@ -557,6 +1124,18 @@ footer h2 { font-style: italic; }
           VER LISTA
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- CIERRE ANIMADO -->
+  <section class="final-love" id="final-love">
+    <div class="final-love-inner">
+      <p class="final-love-small">con amor</p>
+      <h2 class="final-love-title">Brigitte y Jorge</h2>
+      <div class="final-love-line"></div>
+      <p class="final-love-date">12 · 12 · 2026</p>
+      <div class="final-love-heart">♡</div>
+      <p class="final-love-thanks">Gracias por ser parte de nuestra historia.</p>
     </div>
   </section>
 
@@ -733,6 +1312,20 @@ const observador = new IntersectionObserver((entradas) => {
 document.querySelectorAll(".fade").forEach((elemento) => {
   observador.observe(elemento);
 });
+
+  // Activa el cierre animado cuando entra en pantalla.
+  const finalLove = document.getElementById('final-love');
+  if (finalLove) {
+    const finalObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          finalLove.classList.add('show');
+          observer.unobserve(finalLove);
+        }
+      });
+    }, { threshold: 0.35 });
+    finalObserver.observe(finalLove);
+  }
 </script>
 </body>
 </html>
