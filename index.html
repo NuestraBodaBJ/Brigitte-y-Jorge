@@ -1055,45 +1055,32 @@ footer h2 { color: var(--cream); }
   </section>
 
   <!-- RSVP -->
-  <section class="rsvp center">
-    <div class="wrap fade">
-      <div class="kicker">Tu presencia es importante</div>
-      <h2>¿Nos acompañas?</h2>
-      <p>Confirma tu asistencia antes del 12 de noviembre.</p>
+<section class="rsvp center">
+  <div class="wrap fade">
 
-      <!--
-        RSVP DEMO:
-        Este formulario abre WhatsApp con los datos.
-        Cambia el número en el JavaScript de abajo.
-      -->
-      <form class="form" onsubmit="enviarRSVP(event)">
-        <label for="nombre">Nombre completo</label>
-        <input id="nombre" required placeholder="Tu nombre">
+    <div class="kicker">Tu presencia es importante</div>
 
-        <label for="asistencia">Confirmación</label>
-        <select id="asistencia" required>
-          <option value="">Selecciona</option>
-          <option value="Sí asistiré">Sí, asistiré</option>
-          <option value="No podré asistir">No podré asistir</option>
-        </select>
+    <h2>¿Nos acompañas?</h2>
 
-        <label for="acompanantes">Acompañantes (sin contarte)</label>
-        <select id="acompanantes">
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-        </select>
+    <p>
+      Confirma tu asistencia antes del 12 de noviembre.
+    </p>
 
-        <label for="nota">Mensaje (opcional)</label>
-        <textarea id="nota" placeholder="Unas palabras para los novios"></textarea>
+    <div class="form">
 
-        <button class="solid-btn" type="submit">
-          CONFIRMAR POR WHATSAPP
-        </button>
-      </form>
+      <a
+        class="solid-btn"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScT5BO-bGRzo32d6YUUt1ESUeoeOJeUX-UOJJLxllR20vVSmQ/viewform"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        RESPONDER
+      </a>
+
     </div>
-  </section>
+
+  </div>
+</section>
 
 
   <!-- CIERRE ANIMADO -->
