@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brigitte & Jorge  | Nuestra boda</title>
+<title>Brigitte & Jorge | Nuestra boda</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap');
@@ -126,6 +126,32 @@ p { line-height: 1.9; }
   height: 620px;
   margin: 35px auto;
 }
+
+.parents-block {
+  max-width: 570px;
+  margin: 35px auto 20px;
+  padding: 25px 15px;
+  border-top: 1px solid rgba(197, 163, 108, 0.4);
+  border-bottom: 1px solid rgba(197, 163, 108, 0.4);
+}
+.parents-intro {
+  font: italic 400 22px/1.4 'Cormorant Garamond', serif;
+  color: var(--wine);
+  margin-bottom: 20px;
+}
+.parents-group { margin: 16px 0; }
+.parents-title {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.parents-name {
+  font: 400 17px/1.5 'Cormorant Garamond', serif;
+  color: var(--ink);
+}
+
 .countdown {
   display: flex;
   justify-content: center;
@@ -143,9 +169,7 @@ p { line-height: 1.9; }
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-.story {
-  background: #f1e8df;
-}
+.story { background: #f1e8df; }
 .story-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -157,25 +181,16 @@ p { line-height: 1.9; }
 
 .gallery-grid {
   width: 100%;
-  max-width: 100%;
-  min-width: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
   margin-top: 35px;
-  overflow: hidden;
 }
 .gallery-grid img {
   width: 100%;
-  max-width: 100%;
-  min-width: 0;
   aspect-ratio: 1 / 1;
-  height: auto;
   object-fit: cover;
   display: block;
-}
-.gallery-grid img {
-  height: 300px;
   cursor: pointer;
   transition: transform .4s, filter .4s;
 }
@@ -247,7 +262,6 @@ p { line-height: 1.9; }
   justify-content: center;
   gap: 7px;
   width: 100%;
-  min-height: 92px;
   padding: 20px 16px;
   border-bottom: 1px solid #ddcfc1;
   text-align: center;
@@ -256,131 +270,82 @@ p { line-height: 1.9; }
 .schedule-row time {
   display: block;
   color: var(--red);
-  min-width: 0;
   font-size: 11px;
   letter-spacing: 1px;
-  text-align: center;
   white-space: nowrap;
 }
 .schedule-row div {
-  min-width: 0;
   line-height: 1.7;
   font-size: 13px;
-  text-align: center;
 }
-.schedule-row b {
-  font-weight: 500;
-}
+.schedule-row b { font-weight: 500; }
 
-.dress {
-  background: #f1e8df;
-  position: relative;
-  overflow: hidden;
-}
+.dress { background: #f1e8df; }
 .dress-symbol { font-size: 35px; color: var(--gold); }
 
-/* Paleta de colores del dress code */
+/* Paleta de colores */
 .color-palette {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 18px;
-  margin: 30px auto 5px;
+  margin: 25px auto 10px;
   flex-wrap: wrap;
 }
 .color-swatch {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  min-width: 62px;
+  gap: 6px;
+  min-width: 60px;
 }
 .color-circle {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 2px solid rgba(255,255,255,.8);
-  box-shadow: 0 2px 8px rgba(50,20,25,.15), 0 0 0 1px rgba(101,27,43,.12);
+  border: 1px solid #d4c3b3;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 .color-name {
   font-size: 8px;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #6d5551;
+  color: #7a6366;
 }
 .color-note {
   margin-top: 18px;
-  font-size: 11px;
-  letter-spacing: .5px;
+  font-size: 12px;
   color: #6a4f54;
-  max-width: 500px;
+  max-width: 520px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
   font-style: italic;
 }
 
-@media (max-width: 650px) {
-  .color-palette { gap: 12px; margin-top: 25px; }
-  .color-swatch { min-width: 56px; }
-  .color-circle { width: 45px; height: 45px; }
-  .color-name { font-size: 7px; letter-spacing: .8px; }
-}
-
 .rsvp { background: var(--cream); }
-.form {
-  max-width: 580px;
-  margin: 30px auto 0;
-  text-align: left;
-}
-.form label {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 2px;
-  margin: 20px 0 8px;
-  text-transform: uppercase;
-}
-.form input, .form select, .form textarea {
-  width: 100%;
-  padding: 14px;
-  background: transparent;
-  border: 1px solid #d7c7b8;
-  color: var(--ink);
-  font: 13px 'Montserrat',sans-serif;
-}
-.form textarea { min-height: 90px; }
 .solid-btn {
-  display: block;
+  display: inline-block;
   margin: 28px auto 0;
   background: var(--wine);
   color: white;
   border: 0;
-  padding: 16px 28px;
+  padding: 16px 36px;
   letter-spacing: 2px;
   font-size: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.3s;
 }
-.gifts { background: #f1e8df; }
-.gift-box {
-  border: 1px solid #d6c4b2;
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 30px;
-}
-.copy-btn {
-  border: 1px solid var(--gold);
-  padding: 10px 18px;
-  background: transparent;
-  color: var(--wine);
-  font-size: 10px;
-  letter-spacing: 1px;
-}
+.solid-btn:hover { background: var(--red); }
+
 footer {
   background: #32131d;
   color: white;
   text-align: center;
   padding: 60px 20px;
 }
-footer h2 { font-style: italic; }
+footer h2 { font-style: italic; color: white; }
 .music {
   position: fixed;
   z-index: 10;
@@ -403,456 +368,9 @@ footer h2 { font-style: italic; }
   section { padding: 65px 18px; }
   .story-grid, .detail-grid { grid-template-columns: 1fr; }
   .story-grid img { height: 390px; }
-  .schedule-row {
-    gap: 7px;
-    padding: 18px 10px;
-  }
-  .schedule-row time { font-size: 10px; letter-spacing: .5px; }
-  .schedule-row div { font-size: 12px; }
   .gallery-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .gallery-grid img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    height: auto;
-  }
   .portrait { height: 460px; }
-  .parents-block {
-    padding: 26px 14px 18px;
-    margin-top: 28px;
-  }
-  .parents-intro { font-size: 20px; }
-  .parents-name { font-size: 17px; }
-  .envelope-decoration { width: 160px; height: 98px; }
-  .envelope-decoration::after { width: 67px; height: 67px; }
 }
-
-
-/* =================================================
-   ESTÉTICA EDITORIAL ROMÁNTICA: VINO + MARFIL
-   Se aplica a todas las secciones sin cambiar las fuentes.
-================================================= */
-:root {
-  --wine: #3b0711;
-  --red: #641b29;
-  --gold: #c9b99d;
-  --cream: #f4f1eb;
-  --ink: #4a3034;
-  --paper-edge: #d8cfc3;
-}
-
-body {
-  background: var(--wine);
-  color: var(--ink);
-}
-
-main { background: var(--wine); }
-section:not(.hero) {
-  background: var(--wine);
-  padding: 72px 20px;
-}
-
-/* Paneles de papel para que cada sección parezca una invitación */
-section:not(.hero) .wrap {
-  position: relative;
-  isolation: isolate;
-  max-width: 900px;
-  padding: clamp(30px, 5vw, 58px);
-  background: var(--cream);
-  border: 1px solid var(--paper-edge);
-  outline: 1px solid rgba(201,185,157,.55);
-  outline-offset: -8px;
-  box-shadow: 0 12px 28px rgba(18,0,5,.18);
-}
-
-section:not(.hero) .wrap::before,
-section:not(.hero) .wrap::after {
-  position: absolute;
-  z-index: 2;
-  color: #b9a37e;
-  opacity: .82;
-  font-family: 'Cormorant Garamond', serif;
-  line-height: 1;
-  pointer-events: none;
-  text-shadow: 0 1px 0 rgba(255,255,255,.45);
-}
-section:not(.hero) .wrap::before {
-  content: '❦';
-  top: 14px;
-  right: 18px;
-  font-size: 38px;
-}
-section:not(.hero) .wrap::after {
-  content: '❦';
-  bottom: 14px;
-  left: 18px;
-  font-size: 38px;
-  transform: rotate(180deg);
-}
-
-/* Detalles inspirados en una invitación física: marfil, flores y sobre */
-.parents-block {
-  max-width: 610px;
-  margin: 34px auto 10px;
-  padding: 30px 24px 22px;
-  border-top: 1px solid var(--paper-edge);
-  border-bottom: 1px solid var(--paper-edge);
-  position: relative;
-}
-.parents-block::before,
-.parents-block::after {
-  position: absolute;
-  color: #b9a37e;
-  font-size: 23px;
-  line-height: 1;
-}
-.parents-block::before {
-  content: '❧';
-  left: -2px;
-  top: -13px;
-}
-.parents-block::after {
-  content: '❧';
-  right: -2px;
-  bottom: -13px;
-  transform: rotate(180deg);
-}
-.parents-intro {
-  font: italic 400 22px/1.35 'Cormorant Garamond', serif;
-  color: var(--red);
-  margin-bottom: 22px;
-}
-.parents-group {
-  margin: 18px 0;
-}
-.parents-title {
-  font-size: 9px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #927b62;
-  margin-bottom: 7px;
-}
-.parents-name {
-  font: 400 18px/1.45 'Cormorant Garamond', serif;
-  color: #4a3034;
-}
-
-/* Pequeño sello floral para reforzar la estética del sobre */
-.intro .wrap {
-  overflow: hidden;
-}
-.intro .wrap::marker {
-  display: none;
-}
-.intro .wrap {
-  --seal: #6f1c29;
-}
-.intro .wrap::after {
-  content: '❦';
-}
-
-.kicker { color: #927b62; }
-h2 { color: var(--red); }
-.gold-line { background: var(--gold); }
-.intro .message { color: #5a4245; }
-
-
-.envelope-decoration {
-  width: 185px;
-  height: 112px;
-  margin: 34px auto 28px;
-  position: relative;
-  border: 1px solid #c9b99d;
-  background: #fffdfa;
-  box-shadow: 0 6px 16px rgba(45,10,17,.12);
-  overflow: hidden;
-}
-.envelope-decoration::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, transparent 49.5%, #d8cfc3 50%, transparent 50.5%),
-              linear-gradient(215deg, transparent 49.5%, #d8cfc3 50%, transparent 50.5%);
-  opacity: .8;
-}
-.envelope-decoration::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: -1px;
-  width: 76px;
-  height: 76px;
-  transform: translateX(-50%) rotate(45deg);
-  border-right: 1px solid #c9b99d;
-  border-bottom: 1px solid #c9b99d;
-  background: #f4f1eb;
-}
-.envelope-decoration span {
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  bottom: 15px;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--red);
-  color: #eadfcf;
-  font: 18px 'Cormorant Garamond', serif;
-  box-shadow: 0 2px 5px rgba(45,10,17,.2);
-}
-
-/* Pequeños motivos florales en las tarjetas de papel */
-section:not(.hero) .wrap {
-  background-image:
-    radial-gradient(circle at 9% 10%, rgba(201,185,157,.20) 0 2px, transparent 2.5px),
-    radial-gradient(circle at 91% 90%, rgba(201,185,157,.16) 0 2px, transparent 2.5px);
-  background-size: 28px 28px, 34px 34px;
-  background-position: 0 0, 100% 100%;
-  background-repeat: no-repeat;
-}
-
-/* Fotos como láminas enmarcadas */
-.photo {
-  border: 8px solid #fffdfa;
-  outline: 1px solid var(--paper-edge);
-  box-shadow: 0 5px 18px rgba(45,10,17,.16);
-}
-.story-grid { gap: 28px; }
-.story-copy { padding: 20px 12px; }
-
-/* Galería sobre papel, con separación regular */
-.gallery-grid { gap: 14px; }
-.gallery-grid img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border: 6px solid #fffdfa;
-  outline: 1px solid var(--paper-edge);
-  box-shadow: 0 3px 10px rgba(45,10,17,.12);
-  box-sizing: border-box;
-}
-
-/* Detalles, itinerario, vestimenta, RSVP y regalos */
-.details { color: var(--ink); }
-.details h2 { color: var(--red); }
-.details .detail-card {
-  background: rgba(255,255,255,.38);
-  border: 1px solid var(--paper-edge);
-  outline: 1px solid rgba(201,185,157,.45);
-  outline-offset: -6px;
-  color: var(--ink);
-}
-.details .detail-card h3 { color: var(--red); }
-.details .detail-card .kicker { color: #927b62 !important; }
-.details .outline-btn {
-  border-color: var(--gold);
-  color: var(--red);
-}
-.schedule-row { border-bottom-color: var(--paper-edge); }
-.schedule-row time { color: var(--red); }
-.schedule-row b { color: var(--red); }
-.dress-symbol { color: #a58b69; }
-.form input, .form select, .form textarea {
-  background: #fffdfa;
-  border-color: var(--paper-edge);
-}
-.form input:focus, .form select:focus, .form textarea:focus {
-  outline: 1px solid var(--gold);
-  border-color: var(--gold);
-}
-.solid-btn {
-  display: inline-block;
-  margin: 28px auto 0;
-  background: #783F49;
-  color: #F8F3ED;
-  padding: 16px 52px;
-  border: 1px solid #B69A72;
-  text-decoration: none;
-  letter-spacing: 3px;
-  font-size: 15px;
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: all 0.4s ease;
-}
-.solid-btn:hover {
-  background: #F8F3ED;
-  color: #783F49;
-  border-color: #783F49;
-  transform: translateY(-2px);
-}
-.gift-box {
-  background: rgba(255,255,255,.35);
-  border-color: var(--paper-edge);
-}
-.copy-btn { border-color: var(--gold); color: var(--red); }
-
-/* Cierre romántico: texto final animado al entrar en pantalla */
-.final-love {
-  position: relative;
-  min-height: 58vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: var(--wine);
-  color: var(--cream);
-  overflow: hidden;
-}
-.final-love::before,
-.final-love::after {
-  content: '❦';
-  position: absolute;
-  color: var(--gold);
-  opacity: .45;
-  font: 42px/1 'Cormorant Garamond', serif;
-}
-.final-love::before { top: 18%; left: 12%; transform: rotate(-18deg); }
-.final-love::after { bottom: 18%; right: 12%; transform: rotate(162deg); }
-.final-love-inner {
-  position: relative;
-  z-index: 1;
-  padding: 30px;
-}
-.final-love-small {
-  margin: 0 0 10px;
-  color: var(--gold);
-  font: italic 400 clamp(30px, 5vw, 48px)/1.1 'Cormorant Garamond', serif;
-  opacity: 0;
-  transform: translateY(18px);
-  filter: blur(5px);
-  letter-spacing: 1px;
-}
-.final-love-title {
-  margin: 0;
-  color: var(--cream);
-  font: italic 400 clamp(52px, 10vw, 105px)/.95 'Cormorant Garamond', serif;
-  opacity: 0;
-  transform: translateY(28px) scale(.97);
-  filter: blur(6px);
-  letter-spacing: 2px;
-}
-.final-love-line {
-  width: 0;
-  height: 1px;
-  margin: 24px auto 0;
-  background: var(--gold);
-  opacity: 0;
-}
-.final-love-date {
-  margin: 22px 0 8px;
-  color: var(--cream);
-  font: 400 clamp(15px, 2.5vw, 19px)/1.3 'Montserrat', sans-serif;
-  letter-spacing: 4px;
-  opacity: 0;
-  transform: translateY(12px);
-}
-.final-love-heart {
-  margin: 2px 0 8px;
-  color: var(--gold);
-  font: 32px/1 'Cormorant Garamond', serif;
-  opacity: 0;
-  transform: scale(.7);
-}
-.final-love-thanks {
-  margin: 0;
-  color: rgba(248,243,237,.88);
-  font: 400 14px/1.7 'Cormorant Garamond', serif;
-  letter-spacing: .3px;
-  opacity: 0;
-  transform: translateY(10px);
-}
-.final-love.show .final-love-small {
-  animation: loveSmall 1.2s cubic-bezier(.22,.61,.36,1) .15s forwards;
-}
-.final-love.show .final-love-title {
-  animation: loveTitle 1.8s cubic-bezier(.22,.61,.36,1) .55s forwards;
-}
-.final-love.show .final-love-line {
-  animation: loveLine 1.1s ease 1.55s forwards;
-}
-.final-love.show .final-love-date {
-  animation: loveDetails 1s cubic-bezier(.22,.61,.36,1) 2.15s forwards;
-}
-.final-love.show .final-love-heart {
-  animation: loveHeart 1s cubic-bezier(.22,.61,.36,1) 2.45s forwards;
-}
-.final-love.show .final-love-thanks {
-  animation: loveDetails 1.2s cubic-bezier(.22,.61,.36,1) 2.65s forwards;
-}
-@keyframes loveSmall {
-  to { opacity: 1; transform: translateY(0); filter: blur(0); letter-spacing: 3px; }
-}
-@keyframes loveTitle {
-  0% { opacity: 0; transform: translateY(28px) scale(.97); filter: blur(6px); letter-spacing: 2px; }
-  60% { opacity: 1; filter: blur(0); }
-  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); letter-spacing: 4px; }
-}
-@keyframes loveLine {
-  to { width: 70px; opacity: 1; }
-}
-@keyframes loveDetails {
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes loveHeart {
-  0% { opacity: 0; transform: scale(.7); }
-  65% { opacity: 1; transform: scale(1.12); }
-  100% { opacity: 1; transform: scale(1); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .final-love-small, .final-love-title, .final-love-line, .final-love-date, .final-love-heart, .final-love-thanks {
-    animation: none !important;
-    opacity: 1;
-    transform: none;
-    filter: none;
-  }
-  .final-love-line { width: 70px; }
-  .final-love-date, .final-love-heart, .final-love-thanks { opacity: 1; transform: none; }
-}
-
-/* El cierre vuelve al vino oscuro, como la portada */
-footer {
-  background: var(--wine);
-  color: var(--cream);
-  border-top: 1px solid rgba(201,185,157,.45);
-}
-footer h2 { color: var(--cream); }
-.music {
-  position: fixed;
-  z-index: 10;
-  right: 18px;
-  bottom: 18px;
-  width: 45px; height: 45px;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  background: var(--wine);
-  color: white;
-}
-
-@media(max-width:650px) {
-  section:not(.hero) { padding: 38px 14px; }
-  section:not(.hero) .wrap {
-    padding: 38px 22px;
-    outline-offset: -6px;
-  }
-  section:not(.hero) .wrap::before,
-  section:not(.hero) .wrap::after { font-size: 26px; }
-  .story-grid { gap: 16px; }
-  .gallery-grid { gap: 10px; }
-  .hero h1 {
-    font-size: clamp(64px, 18vw, 92px);
-    line-height: 1.0;
-    margin: 22px 0 20px;
-  }
-  .hero .kicker {
-    font-size: 12px;
-    letter-spacing: 4px;
-  }
-}
-
 </style>
 </head>
 
@@ -870,7 +388,7 @@ footer h2 { color: var(--cream); }
   </div>
 </div>
 
-<!-- MÚSICA: reemplaza musica.mp3 por tu archivo -->
+<!-- MÚSICA -->
 <audio id="musica" loop>
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
@@ -920,13 +438,7 @@ footer h2 { color: var(--cream); }
         </div>
       </div>
 
-      <div class="envelope-decoration" aria-hidden="true">
-        <span>❦</span>
-      </div>
-
-      <!-- FOTO 3 -->
-      <img class="photo portrait" src="imagenes/imagen3.jpg"
-           alt="Fotografía de los novios">
+      <img class="photo portrait" src="imagenes/imagen3.jpg" alt="Fotografía de los novios">
     </div>
   </section>
 
@@ -947,9 +459,7 @@ footer h2 { color: var(--cream); }
   <!-- NUESTRA HISTORIA -->
   <section class="story">
     <div class="wrap story-grid fade">
-      <!-- FOTO 4 -->
-      <img class="photo" src="imagenes/imagen4.jpg"
-           alt="Nuestra historia">
+      <img class="photo" src="imagenes/imagen4.jpg" alt="Nuestra historia">
       <div class="story-copy center">
         <div class="kicker">Nuestra historia</div>
         <h2>Un amor, mil recuerdos</h2>
@@ -970,7 +480,6 @@ footer h2 { color: var(--cream); }
       <p>Recuerdos que guardamos en el corazón.</p>
 
       <div class="gallery-grid" id="galeria">
-        <!-- FOTOS 5 A 10: editar los archivos aquí -->
         <img src="imagenes/imagen5.jpg" alt="Foto 5" onclick="verFoto(this)">
         <img src="imagenes/imagen6.jpg" alt="Foto 6" onclick="verFoto(this)">
         <img src="imagenes/imagen7.jpg" alt="Foto 7" onclick="verFoto(this)">
@@ -998,9 +507,7 @@ footer h2 { color: var(--cream); }
             Jirón Azángaro 451, en la intersección con el jirón Ucayali<br>
             Centro Histórico de Lima
           </p>
-          <a class="outline-btn"
-             href="https://maps.app.goo.gl/pgUheAH9ThVHtt8cA"
-             target="_blank">VER EN MAPS</a>
+          <a class="outline-btn" href="https://maps.app.goo.gl/pgUheAH9ThVHtt8cA" target="_blank">VER EN MAPS</a>
         </div>
 
         <div class="detail-card">
@@ -1012,9 +519,7 @@ footer h2 { color: var(--cream); }
             Jirón de la Unión 364 (Plaza Mayor de Lima)<br>
             Centro Histórico de Lima
           </p>
-          <a class="outline-btn"
-             href="https://maps.app.goo.gl/ypGX4f7a37G2bTYCA"
-             target="_blank">VER EN MAPS</a>
+          <a class="outline-btn" href="https://maps.app.goo.gl/ypGX4f7a37G2bTYCA" target="_blank">VER EN MAPS</a>
         </div>
       </div>
     </div>
@@ -1050,26 +555,25 @@ footer h2 { color: var(--cream); }
       <h2>Elegante</h2>
       <p>Formal · Queremos verte celebrar con nosotros.</p>
 
-      <div class="kicker" style="margin-top:28px;">Reserva de color</div>
       <div class="color-palette" aria-label="Paleta de colores reservados">
         <div class="color-swatch">
-          <span class="color-circle" style="background:#ffffff; border: 1px solid #d8cfc3;"></span>
+          <span class="color-circle" style="background:#ffffff;"></span>
           <span class="color-name">Blanco</span>
         </div>
         <div class="color-swatch">
-          <span class="color-circle" style="background:#f5f2eb; border: 1px solid #d8cfc3;"></span>
+          <span class="color-circle" style="background:#f8f5ee;"></span>
           <span class="color-name">Ivory</span>
         </div>
         <div class="color-swatch">
-          <span class="color-circle" style="background:#f5f5dc; border: 1px solid #d8cfc3;"></span>
+          <span class="color-circle" style="background:#f2ece1;"></span>
           <span class="color-name">Beige</span>
         </div>
         <div class="color-swatch">
-          <span class="color-circle" style="background:#e3d3be; border: 1px solid #c8b9a6;"></span>
+          <span class="color-circle" style="background:#e3d5c5;"></span>
           <span class="color-name">Arena</span>
         </div>
       </div>
-      <p class="color-note">Les pedimos amablemente evitar las tonadas en blanco, ivory, beige o arena, reservadas de manera especial para la novia.</p>
+      <p class="color-note">Les pedimos amablemente evitar las tonalidades en blanco, ivory, beige o arena, reservadas con cariño especialmente para la novia.</p>
     </div>
   </section>
 
@@ -1080,30 +584,20 @@ footer h2 { color: var(--cream); }
       <h2>¿Nos acompañas?</h2>
       <p>Confirma tu asistencia antes del 12 de noviembre.</p>
       
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLScHL9GKbVjRRgiqENn6UgGGUP-4_qA1IMFNT2CgZ9HyFPw9cg/formResponse"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="solid-btn"
-      >
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScHL9GKbVjRRgiqENn6UgGGUP-4_qA1IMFNT2CgZ9HyFPw9cg/formResponse" target="_blank" rel="noopener noreferrer" class="solid-btn">
         RESPONDER
       </a>
     </div>
   </section>
 
-  <!-- CIERRE ANIMADO -->
-  <section class="final-love" id="final-love">
-    <div class="final-love-inner">
-      <p class="final-love-small">con amor</p>
-      <h2 class="final-love-title">Brigitte y Jorge</h2>
-      <div class="final-love-line"></div>
-      <p class="final-love-date">12 · 12 · 2026</p>
-      <div class="final-love-heart">♡</div>
-      <p class="final-love-thanks">Gracias por ser parte de nuestra historia.</p>
-    </div>
-  </section>
-
 </main>
+
+<footer>
+  <div class="wrap">
+    <h2>Brigitte & Jorge</h2>
+    <p style="font-size: 11px; letter-spacing: 3px; margin-top: 15px;">12 · 12 · 2026</p>
+  </div>
+</footer>
 
 <!-- Visor de fotos -->
 <div class="lightbox" id="lightbox" onclick="cerrarFoto()">
@@ -1112,36 +606,11 @@ footer h2 { color: var(--cream); }
 </div>
 
 <script>
-/* =================================================
-   1. CONFIGURACIÓN DE FOTOS
-================================================= */
-
-const imagenes = {
-  imagen1: "imagenes/imagen1.jpg",   // Fondo del sobre
-  imagen2: "imagenes/imagen2.jpg",   // Portada principal
-  imagen3: "imagenes/imagen3.jpg",   // Foto de los novios
-  imagen4: "imagenes/imagen4.jpg",   // Nuestra historia
-  imagen5: "imagenes/imagen5.jpg",   // Galería 1
-  imagen6: "imagenes/imagen6.jpg",   // Galería 2
-  imagen7: "imagenes/imagen7.jpg",   // Galería 3
-  imagen8: "imagenes/imagen8.jpg",   // Galería 4
-  imagen9: "imagenes/imagen9.jpg",   // Galería 5
-  imagen10:"imagenes/imagen10.jpg"   // Galería 6
-};
-
-/* =================================================
-   2. ABRIR INVITACIÓN
-================================================= */
-
 function abrirInvitacion() {
   document.getElementById("cover").classList.add("closed");
   const audio = document.getElementById("musica");
   audio.play().catch(() => {});
 }
-
-/* =================================================
-   3. MÚSICA
-================================================= */
 
 function toggleMusica() {
   const audio = document.getElementById("musica");
@@ -1151,10 +620,6 @@ function toggleMusica() {
     audio.pause();
   }
 }
-
-/* =================================================
-   4. CUENTA REGRESIVA
-================================================= */
 
 const fechaBoda = new Date("2026-12-12T18:00:00-05:00").getTime();
 
@@ -1184,10 +649,6 @@ function actualizarCuenta() {
 actualizarCuenta();
 setInterval(actualizarCuenta, 1000);
 
-/* =================================================
-   5. GALERÍA / AMPLIAR FOTOS
-================================================= */
-
 function verFoto(img) {
   document.getElementById("fotoGrande").src = img.src;
   document.getElementById("lightbox").classList.add("show");
@@ -1196,48 +657,6 @@ function verFoto(img) {
 function cerrarFoto() {
   document.getElementById("lightbox").classList.remove("show");
 }
-
-/* =================================================
-   6. RSVP POR WHATSAPP
-================================================= */
-
-const whatsappNovios = "519XXXXXXXX";
-
-function enviarRSVP(event) {
-  event.preventDefault();
-
-  const nombre = document.getElementById("nombre").value.trim();
-  const asistencia = document.getElementById("asistencia").value;
-  const acompanantes = document.getElementById("acompanantes").value;
-  const nota = document.getElementById("nota").value.trim();
-
-  const mensaje =
-    "Hola Brigitte y Jorge 💍\n\n" +
-    "Soy: " + nombre + "\n" +
-    "Confirmación: " + asistencia + "\n" +
-    "Acompañantes: " + acompanantes + "\n" +
-    (nota ? "Mensaje: " + nota : "");
-
-  const url = "https://wa.me/" + whatsappNovios +
-              "?text=" + encodeURIComponent(mensaje);
-
-  window.open(url, "_blank");
-}
-
-/* =================================================
-   7. COPIAR DATOS DE REGALO
-================================================= */
-
-function copiar(id) {
-  const texto = document.getElementById(id).textContent.trim();
-  navigator.clipboard.writeText(texto)
-    .then(() => alert("Copiado: " + texto))
-    .catch(() => alert("No se pudo copiar. Selecciona el dato manualmente."));
-}
-
-/* =================================================
-   8. ANIMACIÓN AL DESPLAZARSE
-================================================= */
 
 const observador = new IntersectionObserver((entradas) => {
   entradas.forEach((entrada) => {
@@ -1251,19 +670,6 @@ const observador = new IntersectionObserver((entradas) => {
 document.querySelectorAll(".fade").forEach((elemento) => {
   observador.observe(elemento);
 });
-
-  const finalLove = document.getElementById('final-love');
-  if (finalLove) {
-    const finalObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          finalLove.classList.add('show');
-          observer.unobserve(finalLove);
-        }
-      });
-    }, { threshold: 0.35 });
-    finalObserver.observe(finalLove);
-  }
 </script>
 </body>
 </html>
