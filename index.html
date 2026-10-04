@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -661,8 +660,24 @@ section:not(.hero) .wrap {
   border-color: var(--gold);
 }
 .solid-btn {
-  background: var(--wine);
-  border: 1px solid var(--gold);
+  display: inline-block;
+  margin: 28px auto 0;
+  background: #783F49;
+  color: #F8F3ED;
+  padding: 16px 52px;
+  border: 1px solid #B69A72;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+.solid-btn:hover {
+  background: #F8F3ED;
+  color: #783F49;
+  border-color: #783F49;
+  transform: translateY(-2px);
 }
 .gift-box {
   background: rgba(255,255,255,.35);
@@ -801,8 +816,15 @@ footer {
 }
 footer h2 { color: var(--cream); }
 .music {
+  position: fixed;
+  z-index: 10;
+  right: 18px;
+  bottom: 18px;
+  width: 45px; height: 45px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
   background: var(--wine);
-  border-color: var(--gold);
+  color: white;
 }
 
 @media(max-width:650px) {
@@ -1055,31 +1077,22 @@ footer h2 { color: var(--cream); }
   </section>
 
   <!-- RSVP -->
-<section class="rsvp center">
-  <div class="wrap fade">
-
-    <div class="kicker">Tu presencia es importante</div>
-
-    <h2>¿Nos acompañas?</h2>
-
-    <p>Confirma tu asistencia antes del 12 de noviembre.</p>
-
-    <div class="rsvp-button-container">
-
+  <section class="rsvp center">
+    <div class="wrap fade">
+      <div class="kicker">Tu presencia es importante</div>
+      <h2>¿Nos acompañas?</h2>
+      <p>Confirma tu asistencia antes del 12 de noviembre.</p>
+      
       <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLScT5BO-bGRzo32d6YUUt1ESUeoeOJeUX-UOJJLxllR20vVSmQ/viewform"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScHL9GKbVjRRgiqENn6UgGGUP-4_qA1IMFNT2CgZ9HyFPw9cg/formResponse"
         target="_blank"
         rel="noopener noreferrer"
-        class="rsvp-button"
+        class="solid-btn"
       >
         RESPONDER
       </a>
-
     </div>
-
-  </div>
-</section>
-
+  </section>
 
   <!-- CIERRE ANIMADO -->
   <section class="final-love" id="final-love">
@@ -1094,73 +1107,7 @@ footer h2 { color: var(--cream); }
   </section>
 
 </main>
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Brigitte y Jorge</title>
-
-    <style>
-
-        /* TODO EL CSS DE TU INVITACIÓN */
-
-        /* BOTÓN RESPONDER */
-
-        .boton-responder {
-            display: inline-block;
-            background: #783F49;
-            color: #F8F3ED;
-            padding: 16px 52px;
-            border: 1px solid #B69A72;
-            border-radius: 0;
-            text-decoration: none;
-            font-family: inherit;
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-        }
-
-        .boton-responder:hover {
-            background: #F8F3ED;
-            color: #783F49;
-            border-color: #783F49;
-            transform: translateY(-2px);
-        }
-
-    </style>
-
-</head>
-
-<body>
-
-    <!-- TODAS TUS SECCIONES -->
-
-    <section class="invitacion">
-
-        <!-- contenido de tu invitación -->
-
-        <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScHL9GKbVjRRgiqENn6UgGGUP-4_qA1IMFNT2CgZ9HyFPw9cg/formResponse"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-responder"
-        >
-            RESPONDER
-        </a>
-
-    </section>
-
-</body>
-</html>
-
-
-  
 <!-- Visor de fotos -->
 <div class="lightbox" id="lightbox" onclick="cerrarFoto()">
   <button aria-label="Cerrar">×</button>
@@ -1170,8 +1117,6 @@ footer h2 { color: var(--cream); }
 <script>
 /* =================================================
    1. CONFIGURACIÓN DE FOTOS
-   Cambia aquí los nombres/rutas de tus imágenes.
-   Cada entrada corresponde a imagen1, imagen2, etc.
 ================================================= */
 
 const imagenes = {
@@ -1187,11 +1132,6 @@ const imagenes = {
   imagen10:"imagenes/imagen10.jpg"   // Galería 6
 };
 
-/* Total de fotos previstas: 10.
-   Si agregas más, añade imagen11, imagen12...
-   y coloca sus etiquetas <img> en la galería. */
-
-
 /* =================================================
    2. ABRIR INVITACIÓN
 ================================================= */
@@ -1202,10 +1142,8 @@ function abrirInvitacion() {
   audio.play().catch(() => {});
 }
 
-
 /* =================================================
    3. MÚSICA
-   Archivo esperado: musica.mp3
 ================================================= */
 
 function toggleMusica() {
@@ -1217,10 +1155,8 @@ function toggleMusica() {
   }
 }
 
-
 /* =================================================
    4. CUENTA REGRESIVA
-   Ajusta fecha y hora local de la boda.
 ================================================= */
 
 const fechaBoda = new Date("2026-12-12T18:00:00-05:00").getTime();
@@ -1251,7 +1187,6 @@ function actualizarCuenta() {
 actualizarCuenta();
 setInterval(actualizarCuenta, 1000);
 
-
 /* =================================================
    5. GALERÍA / AMPLIAR FOTOS
 ================================================= */
@@ -1265,12 +1200,8 @@ function cerrarFoto() {
   document.getElementById("lightbox").classList.remove("show");
 }
 
-
 /* =================================================
    6. RSVP POR WHATSAPP
-   Reemplaza el número por el de ustedes.
-   Formato internacional sin + ni espacios.
-   Ejemplo Perú: 51999111222
 ================================================= */
 
 const whatsappNovios = "519XXXXXXXX";
@@ -1296,7 +1227,6 @@ function enviarRSVP(event) {
   window.open(url, "_blank");
 }
 
-
 /* =================================================
    7. COPIAR DATOS DE REGALO
 ================================================= */
@@ -1307,7 +1237,6 @@ function copiar(id) {
     .then(() => alert("Copiado: " + texto))
     .catch(() => alert("No se pudo copiar. Selecciona el dato manualmente."));
 }
-
 
 /* =================================================
    8. ANIMACIÓN AL DESPLAZARSE
@@ -1326,7 +1255,6 @@ document.querySelectorAll(".fade").forEach((elemento) => {
   observador.observe(elemento);
 });
 
-  // Activa el cierre animado cuando entra en pantalla.
   const finalLove = document.getElementById('final-love');
   if (finalLove) {
     const finalObserver = new IntersectionObserver((entries, observer) => {
